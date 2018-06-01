@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+  <servlet>
+    <servlet-name>MapToLetter</servlet-name>
+    <servlet-class>edu.asupoly.ser422.lab5.MapToLetterServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MapToLetter</servlet-name>
+    <url-pattern>/map</url-pattern>
+  </servlet-mapping>
+</web-app>

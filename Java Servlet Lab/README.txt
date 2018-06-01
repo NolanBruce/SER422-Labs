@@ -1,0 +1,1 @@
+A basic Java servlet-based application for a to do list. Focus is on educational functionality, not design.

@@ -1,0 +1,7 @@
+{
+  "name": "PhoneService",
+  "version": "0.1.0",
+  "description": "SER422 Lab 3",
+  "title": "PhoneService API",
+  "url" : "https://localhost:8080/PhoneService/"
+}

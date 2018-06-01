@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://lab4.ser422.asupoly.edu" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://lab4.ser422.asupoly.edu" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ax21="http://lab4.ser422.asupoly.edu/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://lab4.ser422.asupoly.edu" xmlns:ax22="http://lab4.ser422.asupoly.edu/xsd">
+            <xs:import namespace="http://lab4.ser422.asupoly.edu/xsd"/>
+            <xs:element name="mapToLetterGrade">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="args0" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="mapToLetterGradeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSubjects">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getSubjectsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Lab4ServiceException">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="Lab4ServiceException" nillable="true" type="ns:Exception"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="Exception">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="getService">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getServiceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:Lab4Service"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="calculateGrade">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="args1" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="calculateGradeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://lab4.ser422.asupoly.edu/xsd">
+            <xs:complexType name="Lab4Service">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="subjects" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getServiceRequest">
+    <wsdl:part name="parameters" element="ns:getService">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calculateGradeRequest">
+    <wsdl:part name="parameters" element="ns:calculateGrade">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSubjectsResponse">
+    <wsdl:part name="parameters" element="ns:getSubjectsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServiceResponse">
+    <wsdl:part name="parameters" element="ns:getServiceResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Lab4ServiceException">
+    <wsdl:part name="parameters" element="ns:Lab4ServiceException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="mapToLetterGradeResponse">
+    <wsdl:part name="parameters" element="ns:mapToLetterGradeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="mapToLetterGradeRequest">
+    <wsdl:part name="parameters" element="ns:mapToLetterGrade">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSubjectsRequest">
+    <wsdl:part name="parameters" element="ns:getSubjects">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calculateGradeResponse">
+    <wsdl:part name="parameters" element="ns:calculateGradeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Lab4ServicePortType">
+    <wsdl:operation name="getSubjects">
+      <wsdl:input message="ns:getSubjectsRequest" wsaw:Action="urn:getSubjects">
+    </wsdl:input>
+      <wsdl:output message="ns:getSubjectsResponse" wsaw:Action="urn:getSubjectsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calculateGrade">
+      <wsdl:input message="ns:calculateGradeRequest" wsaw:Action="urn:calculateGrade">
+    </wsdl:input>
+      <wsdl:output message="ns:calculateGradeResponse" wsaw:Action="urn:calculateGradeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mapToLetterGrade">
+      <wsdl:input message="ns:mapToLetterGradeRequest" wsaw:Action="urn:mapToLetterGrade">
+    </wsdl:input>
+      <wsdl:output message="ns:mapToLetterGradeResponse" wsaw:Action="urn:mapToLetterGradeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getService">
+      <wsdl:input message="ns:getServiceRequest" wsaw:Action="urn:getService">
+    </wsdl:input>
+      <wsdl:output message="ns:getServiceResponse" wsaw:Action="urn:getServiceResponse">
+    </wsdl:output>
+      <wsdl:fault name="Lab4ServiceException" message="ns:Lab4ServiceException" wsaw:Action="urn:getServiceLab4ServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Lab4ServiceSoap11Binding" type="ns:Lab4ServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getSubjects">
+      <soap:operation soapAction="urn:getSubjects" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calculateGrade">
+      <soap:operation soapAction="urn:calculateGrade" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mapToLetterGrade">
+      <soap:operation soapAction="urn:mapToLetterGrade" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getService">
+      <soap:operation soapAction="urn:getService" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Lab4ServiceException">
+        <soap:fault name="Lab4ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Lab4ServiceSoap12Binding" type="ns:Lab4ServicePortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getSubjects">
+      <soap12:operation soapAction="urn:getSubjects" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calculateGrade">
+      <soap12:operation soapAction="urn:calculateGrade" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mapToLetterGrade">
+      <soap12:operation soapAction="urn:mapToLetterGrade" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getService">
+      <soap12:operation soapAction="urn:getService" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Lab4ServiceException">
+        <soap12:fault name="Lab4ServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Lab4ServiceHttpBinding" type="ns:Lab4ServicePortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="getSubjects">
+      <http:operation location="getSubjects"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calculateGrade">
+      <http:operation location="calculateGrade"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mapToLetterGrade">
+      <http:operation location="mapToLetterGrade"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getService">
+      <http:operation location="getService"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:output>
+      <wsdl:fault name="Lab4ServiceException">
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Lab4-nmbruce">
+    <wsdl:port name="Lab4ServiceHttpSoap12Endpoint" binding="ns:Lab4ServiceSoap12Binding">
+      <soap12:address location="http://localhost:8080/axis2/services/Lab4Service"/>
+    </wsdl:port>
+    <wsdl:port name="Lab4ServiceHttpSoap11Endpoint" binding="ns:Lab4ServiceSoap11Binding">
+      <soap:address location="http://localhost:8080/axis2/services/Lab4Service"/>
+    </wsdl:port>
+    <wsdl:port name="Lab4ServiceHttpEndpoint" binding="ns:Lab4ServiceHttpBinding">
+      <http:address location="http://localhost:8080/axis2/services/Lab4Service"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

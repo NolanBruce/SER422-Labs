@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+  <servlet>
+    <servlet-name>Lab5Servlet</servlet-name>
+    <servlet-class>edu.asupoly.ser422.lab5.Lab5Servlet</servlet-class>
+    <init-param>
+        <param-name>gradeURL</param-name>
+        <param-value>http://localhost:8088/CalculateGrade/calc</param-value>
+    </init-param>
+    <init-param>
+        <param-name>letterURL</param-name>
+        <param-value>http://localhost:8087/MapToLetter/map</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Lab5Servlet</servlet-name>
+    <url-pattern>/lab5</url-pattern>
+  </servlet-mapping>
+    
+  <welcome-file-list>
+      <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+</web-app>

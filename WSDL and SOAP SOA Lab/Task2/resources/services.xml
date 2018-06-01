@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.7.7  Built on : Nov 20, 2017 (11:41:20 GMT) -->
+<serviceGroup>
+    <service name="Lab4-nmbruce">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="edu.asupoly.ser422.adb.Lab4ServiceMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">edu.asupoly.ser422.adb.Lab4ServiceSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="getSubjects" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://lab4.ser422.asupoly.edu">
+            <actionMapping>urn:getSubjects</actionMapping>
+            <outputActionMapping>urn:getSubjectsResponse</outputActionMapping>
+        </operation>
+        <operation name="getService" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://lab4.ser422.asupoly.edu">
+            <actionMapping>urn:getService</actionMapping>
+            <outputActionMapping>urn:getServiceResponse</outputActionMapping>
+            <faultActionMapping faultName="Lab4ServiceException">urn:getServiceLab4ServiceException</faultActionMapping>
+            <faultActionMapping faultName="Lab4ServiceException_Exception">urn:getServiceLab4ServiceException</faultActionMapping>
+        </operation>
+        <operation name="calculateGrade" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://lab4.ser422.asupoly.edu">
+            <actionMapping>urn:calculateGrade</actionMapping>
+            <outputActionMapping>urn:calculateGradeResponse</outputActionMapping>
+        </operation>
+        <operation name="mapToLetterGrade" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://lab4.ser422.asupoly.edu">
+            <actionMapping>urn:mapToLetterGrade</actionMapping>
+            <outputActionMapping>urn:mapToLetterGradeResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

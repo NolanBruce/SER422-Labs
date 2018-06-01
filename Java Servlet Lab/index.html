@@ -1,0 +1,39 @@
+<HTML>
+<HEAD><TITLE>Task 1</TITLE></HEAD>
+<BODY BGCOLOR="#FDF5E6">
+<H2 ALIGN="CENTER">Add a New Task</H2>
+<FORM ACTION="./tasks" METHOD="POST">
+	<CENTER>
+	Task Name:
+	<INPUT TYPE="TEXT" NAME="name" VALUE="Task Name" required><BR>
+	Description:
+	<INPUT TYPE="TEXT" NAME="description" VALUE="Task Description" required><BR>
+	Days of the Week:<BR>
+	<INPUT TYPE="checkbox" NAME="Mon" VALUE="1" checked>Monday<BR>
+	<INPUT TYPE="checkbox" NAME="Tue" VALUE="2">Tuesday<BR>
+	<INPUT TYPE="checkbox" NAME="Wed" VALUE="3">Wednesday<BR>
+	<INPUT TYPE="checkbox" NAME="Thu" VALUE="4">Thursday<BR>
+	<INPUT TYPE="checkbox" NAME="Fri" VALUE="5">Friday<BR>
+	Duration Estimate:
+	<INPUT TYPE="TEXT" NAME="duration" VALUE="Task Duration" required><BR>
+	Task Executor:
+	<INPUT TYPE="TEXT" NAME="executor" VALUE="Task Executor" required><P>
+	<INPUT TYPE="SUBMIT"> <!--  Press this to submit form -->
+	</CENTER>
+</FORM>
+<H2 ALIGN="CENTER">Find a Task</H2>
+<FORM ACTION="./tasks" METHOD ="GET">
+	<CENTER>
+	Description
+	<INPUT TYPE="TEXT" NAME="description" VALUE="Task Description" required><BR>
+	Days of the Week:<BR>
+	<INPUT TYPE="checkbox" NAME="Mon" VALUE="1" checked>Monday<BR>
+	<INPUT TYPE="checkbox" NAME="Tue" VALUE="2">Tuesday<BR>
+	<INPUT TYPE="checkbox" NAME="Wed" VALUE="3">Wednesday<BR>
+	<INPUT TYPE="checkbox" NAME="Thu" VALUE="4">Thursday<BR>
+	<INPUT TYPE="checkbox" NAME="Fri" VALUE="5">Friday<BR>
+	<INPUT TYPE="SUBMIT" VALUE="FIND TASKS"> <!--  Press this to search for tasks by criteria -->
+	</CENTER>
+</FORM>
+</BODY>
+</HTML>
